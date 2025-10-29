@@ -1,14 +1,96 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState, useEffect } from 'react';
+import Header from '@/components/Header';
+import Hero from '@/components/Hero';
+import Services from '@/components/Services';
+import Calculator from '@/components/Calculator';
+import Portfolio from '@/components/Portfolio';
+import Pricing from '@/components/Pricing';
+import About from '@/components/About';
+import Contacts from '@/components/Contacts';
+import Footer from '@/components/Footer';
 
-const Index = () => {
+export default function Index() {
+  const [activeSection, setActiveSection] = useState('home');
+
+  const handleNavigate = (section: string) => {
+    setActiveSection(section);
+    
+    const sectionMap: { [key: string]: string } = {
+      home: 'hero',
+      services: 'services',
+      calculator: 'calculator',
+      portfolio: 'portfolio',
+      pricing: 'pricing',
+      about: 'about',
+      contacts: 'contacts',
+    };
+
+    const targetId = sectionMap[section];
+    
+    if (section === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (targetId) {
+      const element = document.getElementById(targetId);
+      if (element) {
+        const headerOffset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['hero', 'services', 'calculator', 'portfolio', 'pricing', 'about', 'contacts'];
+      const scrollPosition = window.scrollY + 100;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetBottom = offsetTop + element.offsetHeight;
+
+          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+            const sectionNameMap: { [key: string]: string } = {
+              hero: 'home',
+              services: 'services',
+              calculator: 'calculator',
+              portfolio: 'portfolio',
+              pricing: 'pricing',
+              about: 'about',
+              contacts: 'contacts',
+            };
+            setActiveSection(sectionNameMap[section] || section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 color-black text-black">Добро пожаловать!</h1>
-        <p className="text-xl text-gray-600">тут будет отображаться ваш проект</p>
-      </div>
+    <div className="min-h-screen">
+      <Header activeSection={activeSection} onNavigate={handleNavigate} />
+      <main>
+        <div id="hero">
+          <Hero onNavigate={handleNavigate} />
+        </div>
+        <Services />
+        <Calculator />
+        <Portfolio />
+        <Pricing />
+        <About />
+        <Contacts />
+      </main>
+      <Footer />
     </div>
   );
-};
-
-export default Index;
+}
