@@ -4,6 +4,7 @@ import Hero from '@/components/Hero';
 import Services from '@/components/Services';
 import Calculator from '@/components/Calculator';
 import Portfolio from '@/components/Portfolio';
+import UseCases from '@/components/UseCases';
 import Testimonials from '@/components/Testimonials';
 import Pricing from '@/components/Pricing';
 import FAQ from '@/components/FAQ';
@@ -89,6 +90,7 @@ export default function Index() {
         <Services />
         <Calculator />
         <Portfolio />
+        <UseCases />
         <Testimonials />
         <Pricing />
         <FAQ />
