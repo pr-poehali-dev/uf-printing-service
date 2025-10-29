@@ -1,4 +1,8 @@
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import Icon from '@/components/ui/icon';
 
 interface HeroProps {
@@ -6,6 +10,30 @@ interface HeroProps {
 }
 
 export default function Hero({ onNavigate }: HeroProps) {
+  const [material, setMaterial] = useState('plastic');
+  const [quantity, setQuantity] = useState('10');
+
+  const materials = [
+    { value: 'plastic', label: 'Пластик', price: 450 },
+    { value: 'glass', label: 'Стекло', price: 650 },
+    { value: 'wood', label: 'Дерево', price: 500 },
+    { value: 'metal', label: 'Металл', price: 700 },
+  ];
+
+  const calculateQuickPrice = () => {
+    const selectedMaterial = materials.find(m => m.value === material);
+    const qty = parseInt(quantity) || 1;
+    if (!selectedMaterial) return 0;
+
+    let discount = 1;
+    if (qty >= 100) discount = 0.8;
+    else if (qty >= 50) discount = 0.85;
+    else if (qty >= 20) discount = 0.9;
+    else if (qty >= 10) discount = 0.95;
+
+    return Math.round(selectedMaterial.price * qty * discount);
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/5 via-background to-accent/5 pt-16">
       <div className="container mx-auto px-4 py-20">
@@ -17,15 +45,57 @@ export default function Hero({ onNavigate }: HeroProps) {
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
               Профессиональная печать на любых материалах. Быстро, качественно, по конкурентным ценам. Современное оборудование и опытные специалисты.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                size="lg" 
-                className="text-lg"
-                onClick={() => onNavigate('calculator')}
-              >
-                <Icon name="Calculator" size={20} className="mr-2" />
-                Рассчитать стоимость
-              </Button>
+
+            <Card className="mb-8 border-2 border-primary/20 bg-white/80 backdrop-blur">
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
+                  <Icon name="Zap" size={20} className="text-primary" />
+                  Быстрый расчёт стоимости
+                </h3>
+                <div className="grid sm:grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <Select value={material} onValueChange={setMaterial}>
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {materials.map(mat => (
+                          <SelectItem key={mat.value} value={mat.value}>
+                            {mat.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Input
+                      type="number"
+                      min="1"
+                      value={quantity}
+                      onChange={(e) => setQuantity(e.target.value)}
+                      placeholder="Количество"
+                    />
+                  </div>
+                </div>
+                <div className="flex items-center justify-between p-4 bg-primary/10 rounded-lg mb-4">
+                  <span className="text-sm font-medium text-foreground">
+                    Примерная стоимость:
+                  </span>
+                  <span className="text-2xl font-bold text-primary">
+                    {calculateQuickPrice().toLocaleString('ru-RU')} ₽
+                  </span>
+                </div>
+                <Button 
+                  className="w-full"
+                  onClick={() => onNavigate('calculator')}
+                >
+                  <Icon name="Calculator" size={18} className="mr-2" />
+                  Подробный расчёт
+                </Button>
+              </CardContent>
+            </Card>
+
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button 
                 size="lg" 
                 variant="outline"
@@ -35,8 +105,18 @@ export default function Hero({ onNavigate }: HeroProps) {
                 <Icon name="List" size={20} className="mr-2" />
                 Наши услуги
               </Button>
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="text-lg"
+                onClick={() => onNavigate('portfolio')}
+              >
+                <Icon name="Image" size={20} className="mr-2" />
+                Портфолио
+              </Button>
             </div>
-            <div className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-border">
+
+            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border">
               <div className="animate-slide-up" style={{ animationDelay: '0.1s' }}>
                 <div className="text-3xl font-bold text-primary mb-1">500+</div>
                 <div className="text-sm text-muted-foreground">Проектов</div>
