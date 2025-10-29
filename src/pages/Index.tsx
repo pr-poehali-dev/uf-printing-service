@@ -8,6 +8,7 @@ import Pricing from '@/components/Pricing';
 import About from '@/components/About';
 import Contacts from '@/components/Contacts';
 import Footer from '@/components/Footer';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 export default function Index() {
   const [activeSection, setActiveSection] = useState('home');
@@ -91,6 +92,7 @@ export default function Index() {
         <Contacts />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }
