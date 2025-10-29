@@ -6,6 +6,7 @@ import Calculator from '@/components/Calculator';
 import Portfolio from '@/components/Portfolio';
 import Testimonials from '@/components/Testimonials';
 import Pricing from '@/components/Pricing';
+import FAQ from '@/components/FAQ';
 import About from '@/components/About';
 import Contacts from '@/components/Contacts';
 import Footer from '@/components/Footer';
@@ -90,6 +91,7 @@ export default function Index() {
         <Portfolio />
         <Testimonials />
         <Pricing />
+        <FAQ />
         <About />
         <Contacts />
       </main>
