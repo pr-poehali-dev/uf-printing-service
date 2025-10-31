@@ -7,6 +7,7 @@ import Portfolio from '@/components/Portfolio';
 import BeforeAfter from '@/components/BeforeAfter';
 import UseCases from '@/components/UseCases';
 import Process from '@/components/Process';
+import Certificates from '@/components/Certificates';
 import Testimonials from '@/components/Testimonials';
 import Pricing from '@/components/Pricing';
 import FAQ from '@/components/FAQ';
@@ -95,6 +96,7 @@ export default function Index() {
         <BeforeAfter />
         <UseCases />
         <Process />
+        <Certificates />
         <Testimonials />
         <Pricing />
         <FAQ />
