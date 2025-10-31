@@ -8,6 +8,7 @@ import BeforeAfter from '@/components/BeforeAfter';
 import UseCases from '@/components/UseCases';
 import Process from '@/components/Process';
 import Certificates from '@/components/Certificates';
+import Blog from '@/components/Blog';
 import Testimonials from '@/components/Testimonials';
 import Pricing from '@/components/Pricing';
 import FAQ from '@/components/FAQ';
@@ -97,6 +98,7 @@ export default function Index() {
         <UseCases />
         <Process />
         <Certificates />
+        <Blog />
         <Testimonials />
         <Pricing />
         <FAQ />
