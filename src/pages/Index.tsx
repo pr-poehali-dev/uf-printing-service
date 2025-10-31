@@ -9,6 +9,7 @@ import UseCases from '@/components/UseCases';
 import Process from '@/components/Process';
 import Certificates from '@/components/Certificates';
 import Blog from '@/components/Blog';
+import QuickOrder from '@/components/QuickOrder';
 import Testimonials from '@/components/Testimonials';
 import Pricing from '@/components/Pricing';
 import FAQ from '@/components/FAQ';
@@ -99,6 +100,7 @@ export default function Index() {
         <Process />
         <Certificates />
         <Blog />
+        <QuickOrder />
         <Testimonials />
         <Pricing />
         <FAQ />
