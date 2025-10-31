@@ -5,6 +5,7 @@ import Services from '@/components/Services';
 import Calculator from '@/components/Calculator';
 import Portfolio from '@/components/Portfolio';
 import UseCases from '@/components/UseCases';
+import Process from '@/components/Process';
 import Testimonials from '@/components/Testimonials';
 import Pricing from '@/components/Pricing';
 import FAQ from '@/components/FAQ';
@@ -91,6 +92,7 @@ export default function Index() {
         <Calculator />
         <Portfolio />
         <UseCases />
+        <Process />
         <Testimonials />
         <Pricing />
         <FAQ />
