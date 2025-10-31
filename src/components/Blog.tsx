@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
+import BlogPost from './BlogPost';
 
 const blogPosts = [
   {
@@ -115,10 +116,21 @@ const categories = [
 
 export default function Blog() {
   const [activeCategory, setActiveCategory] = useState('Все статьи');
+  const [selectedPostId, setSelectedPostId] = useState<number | null>(null);
 
   const filteredPosts = activeCategory === 'Все статьи' 
     ? blogPosts 
     : blogPosts.filter(post => post.category === activeCategory);
+
+  if (selectedPostId !== null) {
+    return (
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <BlogPost postId={selectedPostId} onBack={() => setSelectedPostId(null)} />
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="py-20 bg-background">
@@ -164,6 +176,7 @@ export default function Blog() {
             {filteredPosts.map((post, index) => (
               <Card 
                 key={post.id}
+                onClick={() => setSelectedPostId(post.id)}
                 className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer animate-scale-in group"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
