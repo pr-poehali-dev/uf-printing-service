@@ -111,3 +111,74 @@
     font-family: "Montserrat", sans-serif;
   }
 }
+
+@layer components {
+  .prose {
+    @apply text-foreground/90;
+  }
+
+  .prose h2 {
+    @apply scroll-mt-20;
+  }
+
+  .prose h3 {
+    @apply scroll-mt-20;
+  }
+
+  .prose ul li::marker {
+    @apply text-primary/60;
+  }
+
+  .prose ol li::marker {
+    @apply text-primary font-semibold;
+  }
+
+  .prose strong {
+    @apply bg-primary/5 px-1 rounded;
+  }
+
+  .prose code {
+    @apply bg-muted px-2 py-1 rounded text-sm font-mono;
+  }
+
+  .prose table {
+    @apply shadow-sm rounded-lg overflow-hidden;
+  }
+
+  .prose blockquote p:first-child::before {
+    content: '"';
+    @apply text-primary text-3xl font-bold mr-1;
+  }
+
+  .prose blockquote p:last-child::after {
+    content: '"';
+    @apply text-primary text-3xl font-bold ml-1;
+  }
+
+  .prose h3:has(span):first-child,
+  .prose h4:has(span):first-child {
+    @apply flex items-center gap-3;
+  }
+
+  .prose li {
+    @apply pl-1;
+  }
+
+  .prose ul > li {
+    @apply relative;
+  }
+
+  .prose p + ul,
+  .prose p + ol {
+    @apply -mt-2;
+  }
+
+  .prose h2 + p,
+  .prose h3 + p {
+    @apply mt-2 text-[18px];
+  }
+
+  .prose hr {
+    @apply my-12 border-border/50;
+  }
+}
