@@ -7,7 +7,7 @@ const examples = [
     id: 1,
     title: 'Визитки на дереве',
     category: 'Визитки',
-    before: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=600&fit=crop',
+    before: 'https://images.unsplash.com/photo-1606857521015-7f9fcf423740?w=800&h=600&fit=crop',
     after: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&h=600&fit=crop',
     improvement: [
       'Текстура дерева стала видна под печатью',
@@ -24,8 +24,8 @@ const examples = [
     id: 2,
     title: 'Фотопечать на стекле',
     category: 'Интерьер',
-    before: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&h=600&fit=crop',
-    after: 'https://images.unsplash.com/photo-1582037928769-181f2644ecb7?w=800&h=600&fit=crop',
+    before: 'https://images.unsplash.com/photo-1554224311-beee4ade6d6d?w=800&h=600&fit=crop',
+    after: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop',
     improvement: [
       'Полноцветная фотография на прозрачном стекле',
       'Эффект глубины и объёма',
@@ -41,8 +41,8 @@ const examples = [
     id: 3,
     title: 'Кожаный ежедневник',
     category: 'Сувениры',
-    before: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=800&h=600&fit=crop',
-    after: 'https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=800&h=600&fit=crop',
+    before: 'https://images.unsplash.com/photo-1531346590897-ee430d30ad83?w=800&h=600&fit=crop',
+    after: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=800&h=600&fit=crop',
     improvement: [
       'Логотип с фотореалистичной детализацией',
       'Печать не стирается и не трескается',
@@ -58,8 +58,8 @@ const examples = [
     id: 4,
     title: 'Рекламный стенд ПВХ',
     category: 'Реклама',
-    before: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=600&fit=crop',
-    after: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=600&fit=crop',
+    before: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop',
+    after: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=600&fit=crop',
     improvement: [
       'Яркие цвета, видны с расстояния 20+ метров',
       'Водостойкая печать для улицы',
@@ -75,8 +75,8 @@ const examples = [
     id: 5,
     title: 'Металлические таблички',
     category: 'Навигация',
-    before: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop',
-    after: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop',
+    before: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=600&fit=crop',
+    after: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&h=600&fit=crop',
     improvement: [
       'Контрастная печать с идеальной читаемостью',
       'Устойчивость к царапинам и коррозии',
@@ -92,8 +92,8 @@ const examples = [
     id: 6,
     title: 'Акриловые награды',
     category: 'Сувениры',
-    before: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop',
-    after: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=600&fit=crop',
+    before: 'https://images.unsplash.com/photo-1568792923760-d70635a89fdc?w=800&h=600&fit=crop',
+    after: 'https://images.unsplash.com/photo-1590479773265-7464e5d48118?w=800&h=600&fit=crop',
     improvement: [
       'Многослойная печать с объёмным эффектом',
       'Кристально чистая детализация',
